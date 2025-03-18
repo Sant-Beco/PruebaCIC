@@ -27,6 +27,7 @@ Se recomienda usar un entorno virtual para evitar conflictos de dependencias.
 🔹 En Linux / macOS:
 
 ![image](https://github.com/user-attachments/assets/ae756a98-4338-4778-b3e0-989781237b4f)
+
 ![image](https://github.com/user-attachments/assets/f5c1383c-6ce7-4b57-9abb-cbbcb21b4fb3)
 
 python -m venv venv
@@ -35,6 +36,7 @@ source venv/bin/activate
 🔹 En Windows:
 
 ![image](https://github.com/user-attachments/assets/332a5769-1676-45c7-b622-2f5e498c70a0)
+
 ![image](https://github.com/user-attachments/assets/4bbe95ce-a4c5-483d-944c-d90e92bc4707)
 
 python -m venv venv
