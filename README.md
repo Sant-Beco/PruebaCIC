@@ -114,6 +114,10 @@ python manage.py runserver
 Luego, abre en tu navegador:
 http://127.0.0.1:8000
 
+
+
+
+
 🌦️ Ejecutar el script de descarga de datos climáticos
 
 El script Script_data.py obtiene información del clima desde OpenWeatherMap y la almacena en la base de datos cada minuto.
