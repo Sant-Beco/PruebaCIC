@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 from .models import Datos
 import requests
+import pandas as pd
+import plotly.express as px
+import plotly.io as pio
+
 
 def index(request):
     # Configuración de la API
@@ -80,3 +84,48 @@ def eliminar_datos(request, id):
 
     # Mostrar una confirmación antes de eliminar (opcional)
     return render(request, 'clima/confirmar_eliminar.html', {'dato': dato})
+
+
+def graficos(request):
+    """
+    Esta vista genera un gráfico simple con los datos de la tabla 'Datos'
+    agrupados por ciudad y muestra los promedios de temperatura y humedad.
+    """
+    
+    # 1. Obtener todos los datos de la base de datos
+    queryset = Datos.objects.all().values("ciudad", "temperatura", "humedad")
+    
+    # 2. Convertir a DataFrame de Pandas
+    df = pd.DataFrame(list(queryset))
+    
+    # Si no hay datos, retornamos un mensaje
+    if df.empty:
+        return render(request, "clima/graficos.html", {
+            "mensaje": "No hay datos suficientes para generar el gráfico."
+        })
+    
+    # 3. Agrupar por ciudad y calcular promedios
+    df_grouped = df.groupby("ciudad", as_index=False).mean()
+    
+    # 4. Crear el gráfico con Plotly
+    #    - Como ejemplo, haremos un gráfico de barras comparando temperatura y humedad promedio por ciudad.
+    fig = px.bar(
+        df_grouped,
+        x="ciudad",
+        y=["temperatura", "humedad"],
+        barmode="group",  # para poner las barras en grupo
+        title="Temperatura y Humedad promedio por Ciudad",
+        labels={
+            "value": "Valor",
+            "variable": "Parámetro",
+            "ciudad": "Ciudad",
+        }
+    )
+    
+    # 5. Convertir el gráfico a HTML
+    grafico_html = pio.to_html(fig, full_html=False)
+    
+    # 6. Renderizar la plantilla con el gráfico
+    return render(request, "clima/graficos.html", {
+        "grafico_html": grafico_html
+    })

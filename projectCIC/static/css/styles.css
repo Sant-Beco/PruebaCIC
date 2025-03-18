@@ -215,3 +215,18 @@ h1 {
     background-color: #424242; /* Gris aún más oscuro al hacer clic */
     transform: translateY(0); /* Restablecer la elevación */
 }
+
+.btn-ver-grafico {
+    background-color: #4CAF50; 
+    color: #fff;               
+    padding: 10px 20px;       
+    margin: 40px;
+    text-decoration: none;     
+    border-radius: 5px;       
+    font-family: sans-serif;   
+    transition: background-color 0.3s ease; 
+}
+
+.btn-ver-grafico:hover {
+    background-color: #45a049; /* Color de fondo al pasar el cursor */
+}
