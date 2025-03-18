@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-0aemt@5bj#_re(wi@ap83zqy9oua=q%$w6f^q0t*pf*xlok7l9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -76,8 +79,12 @@ WSGI_APPLICATION = 'projectCIC.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'prueba_funcional',
+        'USER': 'desarrollador',
+        'PASSWORD': 'desarrollador58',
+        'HOST': 'localhost',  
+        'PORT': '3306',  
     }
 }
 
@@ -122,3 +129,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ # API key
+OPENWEATHERMAP_API_KEY = 'd49a168dac4137f9c5c7f44d4720156d' 

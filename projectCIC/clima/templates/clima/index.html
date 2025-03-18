@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIC</title>
+    <title>Clima en {{ ciudad }}</title>
 </head>
 <body>
-    <h1>CRUD</h1>
-    <h2>clima en {{ ciudad }}</h2>
-    <h2>Temperatura en {{ temperatura }}</h2>
-    <h2>Humedad en {{ humidity }}</h2>
-    <table></table>
-    <div>
-        <a href="#">Create</a>
-        <a href="#">Update</a>
-        <a href="#">Delete</a>
-        <a href="#">Read</a>
-    </div>
-    
-    
+    <h1>Clima en {{ ciudad }}</h1>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% else %}
+        <p>Temperatura: {{ temperatura }}°C</p>
+        <p>Humedad: {{ humedad }}%</p>
+        <p>Descripción: {{ descripcion }}</p>
+        <img src="http://openweathermap.org/img/wn/{{ icono }}@2x.png" alt="Icono del clima">
+    {% endif %}
 </body>
 </html>
