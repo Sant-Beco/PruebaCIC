@@ -29,6 +29,10 @@ def index(request):
     except KeyError as e:
         contexto = {'error': f"Error al procesar los datos del clima: {str(e)}"}
 
+    # Obtener los datos creados manualmente desde la base de datos
+    datos_manuales = Datos.objects.all().order_by('-id')  # Ordenar por ID descendente
+    contexto['datos_manuales'] = datos_manuales
+
     return render(request, 'clima/index.html', contexto)
 
 def crear_datos(request):
@@ -47,4 +51,3 @@ def crear_datos(request):
         return redirect('index')  # Redirige a la página principal
 
     return render(request, 'clima/index.html')
-

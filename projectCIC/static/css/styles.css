@@ -1,14 +1,21 @@
 /* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #FFFFFF; /* Fondo blanco */
+    background-color: #f0f4f8; /* Fondo más suave */
     color: #2D2D2D; /* Texto gris oscuro */
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start; /* Alinear al inicio para mejor disposición */
+    min-height: 100vh;
+    padding-top: 2rem;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 800px; /* Ancho máximo para mejor lectura */
+    padding: 1rem;
 }
 
 /* Contenedor principal */
@@ -18,8 +25,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 400px;
-    width: 100%;
+    margin-bottom: 2rem;
 }
 
 /* Título */
@@ -63,6 +69,7 @@ h1 {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: bold;
+    color: #333;
 }
 
 .form-group input {
@@ -71,6 +78,12 @@ h1 {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #1A73E8; /* Azul corporativo al enfocar */
+    outline: none;
 }
 
 /* Botón de envío */
@@ -87,4 +100,42 @@ h1 {
 
 .submit-btn:hover {
     background-color: #1557A5; /* Azul más oscuro al pasar el mouse */
+}
+
+/* Estilos para los datos creados manualmente */
+.manual-data {
+    background-color: #FFFFFF;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.manual-data h2 {
+    color: #1A73E8; /* Azul corporativo */
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.manual-data ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.manual-data li {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.manual-data li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.manual-data li strong {
+    color: #1A73E8; /* Azul corporativo */
 }

@@ -8,39 +8,59 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <div class="container">
-        <h1>Clima en {{ ciudad }}</h1>
+    <div class="main-container">
+        <div class="container">
+            <h1>Clima en {{ ciudad }}</h1>
 
-        {% if error %}
-            <p class="error">{{ error }}</p>
-        {% else %}
-            <div class="weather-data">
-                <p>Temperatura: {{ temperatura }}°C</p>
-                <p>Humedad: {{ humedad }}%</p>
-                <p>Descripción: {{ descripcion }}</p>
-                <img src="http://openweathermap.org/img/wn/{{ icono }}@2x.png" alt="Icono del clima">
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% else %}
+                <div class="weather-data">
+                    <p>Temperatura: {{ temperatura }}°C</p>
+                    <p>Humedad: {{ humedad }}%</p>
+                    <p>Descripción: {{ descripcion }}</p>
+                    <img src="http://openweathermap.org/img/wn/{{ icono }}@2x.png" alt="Icono del clima">
+                </div>
+            {% endif %}
+
+            <!-- Formulario para crear registros -->
+            <div class="form-container">
+                <h2>Agregar datos manualmente</h2>
+                <form method="post" action="{% url 'crear_datos' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad:</label>
+                        <input type="text" id="ciudad" name="ciudad" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="temperatura">Temperatura:</label>
+                        <input type="number" step="0.01" id="temperatura" name="temperatura" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="humedad">Humedad:</label>
+                        <input type="number" step="0.01" id="humedad" name="humedad" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Guardar</button>
+                </form>
             </div>
-        {% endif %}
+        </div>
 
-        <!-- Formulario para crear registros -->
-        <div class="form-container">
-            <h2>Agregar datos manualmente</h2>
-            <form method="post" action="{% url 'crear_datos' %}">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="ciudad">Ciudad:</label>
-                    <input type="text" id="ciudad" name="ciudad" required>
-                </div>
-                <div class="form-group">
-                    <label for="temperatura">Temperatura:</label>
-                    <input type="number" step="0.01" id="temperatura" name="temperatura" required>
-                </div>
-                <div class="form-group">
-                    <label for="humedad">Humedad:</label>
-                    <input type="number" step="0.01" id="humedad" name="humedad" required>
-                </div>
-                <button type="submit" class="submit-btn">Guardar</button>
-            </form>
+        <!-- Mostrar datos creados manualmente -->
+        <div class="manual-data">
+            <h2>Datos creados manualmente</h2>
+            {% if datos_manuales %}
+                <ul>
+                    {% for dato in datos_manuales %}
+                        <li>
+                            <strong>Ciudad:</strong> {{ dato.ciudad }}<br>
+                            <strong>Temperatura:</strong> {{ dato.temperatura }}°C<br>
+                            <strong>Humedad:</strong> {{ dato.humedad }}%
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No hay datos creados manualmente.</p>
+            {% endif %}
         </div>
     </div>
 </body>
