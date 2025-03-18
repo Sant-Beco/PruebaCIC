@@ -31,6 +31,7 @@ Se recomienda usar un entorno virtual para evitar conflictos de dependencias.
 ![image](https://github.com/user-attachments/assets/f5c1383c-6ce7-4b57-9abb-cbbcb21b4fb3)
 
 python -m venv venv
+
 source venv/bin/activate
 
 🔹 En Windows:
@@ -40,6 +41,7 @@ source venv/bin/activate
 ![image](https://github.com/user-attachments/assets/4bbe95ce-a4c5-483d-944c-d90e92bc4707)
 
 python -m venv venv
+
 venv\Scripts\activate
 
 📦 3. Instalar dependencias
