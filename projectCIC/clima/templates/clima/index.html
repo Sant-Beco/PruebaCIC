@@ -55,6 +55,11 @@
                             <strong>Ciudad:</strong> {{ dato.ciudad }}<br>
                             <strong>Temperatura:</strong> {{ dato.temperatura }}°C<br>
                             <strong>Humedad:</strong> {{ dato.humedad }}%
+                            <br>
+                            <!-- Botón para editar -->
+                            <a href="{% url 'editar_datos' dato.id %}" class="edit-btn">Editar</a>
+                             <!-- Botón para eliminar -->
+                            <a href="{% url 'eliminar_datos' dato.id %}" class="delete-btn">Eliminar</a>
                         </li>
                     {% endfor %}
                 </ul>

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 from .models import Datos
 import requests
@@ -51,3 +51,32 @@ def crear_datos(request):
         return redirect('index')  # Redirige a la página principal
 
     return render(request, 'clima/index.html')
+
+
+def editar_datos(request, id):
+    # Obtener el registro a editar
+    dato = get_object_or_404(Datos, id=id)
+
+    if request.method == 'POST':
+        # Actualizar el registro con los datos del formulario
+        dato.ciudad = request.POST.get('ciudad')
+        dato.temperatura = request.POST.get('temperatura')
+        dato.humedad = request.POST.get('humedad')
+        dato.save()
+
+        return redirect('index')  # Redirigir a la página principal después de actualizar
+
+    # Mostrar el formulario de edición con los datos actuales
+    return render(request, 'clima/editar.html', {'dato': dato})
+
+def eliminar_datos(request, id):
+    # Obtener el registro a eliminar
+    dato = get_object_or_404(Datos, id=id)
+
+    if request.method == 'POST':
+        # Eliminar el registro
+        dato.delete()
+        return redirect('index')  # Redirigir a la página principal después de eliminar
+
+    # Mostrar una confirmación antes de eliminar (opcional)
+    return render(request, 'clima/confirmar_eliminar.html', {'dato': dato})

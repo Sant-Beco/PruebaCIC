@@ -139,3 +139,79 @@ h1 {
 .manual-data li strong {
     color: #1A73E8; /* Azul corporativo */
 }
+
+/* Estilos para el botón de editar */
+.edit-btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50; /* Verde para acciones positivas */
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.edit-btn:hover {
+    background-color: #45a049; /* Verde más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+.edit-btn:active {
+    background-color: #3d8b40; /* Verde aún más oscuro al hacer clic */
+    transform: translateY(0); /* Restablecer la elevación */
+}
+
+/* Estilos para el botón de eliminar */
+.delete-btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem; /* Espacio entre los botones */
+    padding: 0.5rem 1rem;
+    background-color: #f44336; /* Rojo para acciones de eliminación */
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f; /* Rojo más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+.delete-btn:active {
+    background-color: #b71c1c; /* Rojo aún más oscuro al hacer clic */
+    transform: translateY(0); /* Restablecer la elevación */
+}
+
+/* Estilos para el botón de cancelar */
+.cancel-btn {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #757575; /* Gris para acciones neutrales */
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background-color: #616161; /* Gris más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+.cancel-btn:active {
+    background-color: #424242; /* Gris aún más oscuro al hacer clic */
+    transform: translateY(0); /* Restablecer la elevación */
+}
