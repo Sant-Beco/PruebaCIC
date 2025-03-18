@@ -1,19 +1,18 @@
-import requests
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
 from .models import Datos
-from django.conf import settings
+import requests
 
 def index(request):
     # Configuración de la API
-    api_key = settings.OPENWEATHERMAP_API_KEY  # Usa settings para manejar la API key
-    ciudad = "Itagüí"  # Puedes hacerla dinámica (por ejemplo, desde un formulario)
+    api_key = settings.OPENWEATHERMAP_API_KEY
+    ciudad = "Itagüí"
     url = f"https://api.openweathermap.org/data/2.5/weather?q={ciudad}&appid={api_key}&units=metric&lang=es"
 
     try:
         # Realiza la solicitud a la API
         respuesta = requests.get(url)
-        respuesta.raise_for_status()  # Lanza una excepción si la respuesta no es exitosa
+        respuesta.raise_for_status()
         datos_clima = respuesta.json()
 
         # Extrae los datos relevantes
@@ -25,47 +24,27 @@ def index(request):
             'icono': datos_clima['weather'][0]['icon'],
         }
 
-        # Guarda los datos en la base de datos (opcional)
-        Datos.objects.create(
-            ciudad=ciudad,
-            temperatura=contexto['temperatura'],
-            humedad=contexto['humedad'],
-        )
-
     except requests.exceptions.RequestException as e:
-        # Manejo de errores de la solicitud HTTP
-        contexto = {
-            'error': f"Error al obtener los datos del clima: {str(e)}"
-        }
+        contexto = {'error': f"Error al obtener los datos del clima: {str(e)}"}
     except KeyError as e:
-        # Manejo de errores si la API devuelve una estructura inesperada
-        contexto = {
-            'error': f"Error al procesar los datos del clima: {str(e)}"
-        }
+        contexto = {'error': f"Error al procesar los datos del clima: {str(e)}"}
 
-    # Renderiza la plantilla con el contexto
     return render(request, 'clima/index.html', contexto)
 
+def crear_datos(request):
+    if request.method == 'POST':
+        ciudad = request.POST.get('ciudad')
+        temperatura = request.POST.get('temperatura')
+        humedad = request.POST.get('humedad')
 
+        # Crea un nuevo registro en la base de datos
+        Datos.objects.create(
+            ciudad=ciudad,
+            temperatura=temperatura,
+            humedad=humedad,
+        )
 
+        return redirect('index')  # Redirige a la página principal
 
-# def list(request):
-#     datos = datos.objects.all()
-#     return render(request, 'clima/index.html', {'datos': datos})
+    return render(request, 'clima/index.html')
 
-
-
-# def formulario(request):
-#     if request.method == 'POST':
-#         ciudad = request.POST['ciudad']
-#         temperatura = request.POST['temperatura']
-#         humedad = request.POST['humedad']
-
-#         datos = datos(
-#             ciudad=ciudad,
-#             temperatura=temperatura,
-#             humedad=humedad,
-#         )
-#         datos.save()
-#         return redirect('index')
-#     return render(request, 'clima/index.html')
