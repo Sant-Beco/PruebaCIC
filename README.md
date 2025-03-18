@@ -13,6 +13,7 @@ bash
 
 git clone https://github.com/tu-usuario/projectCIC.git
 cd projectCIC
+
 🐍 2. Crear y activar un entorno virtual
 Se recomienda usar un entorno virtual para evitar conflictos de dependencias.
 
@@ -28,12 +29,14 @@ bash
 
 python -m venv venv
 venv\Scripts\activate
+
 📦 3. Instalar dependencias
 Ejecuta el siguiente comando para instalar las dependencias del proyecto:
 
 bash
 
 pip install -r requirements.txt
+
 🛠️ 4. Configurar la base de datos MySQL
 1️⃣ Crea una base de datos en MySQL
 
@@ -62,7 +65,7 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-⚠️ Importante: No subas credenciales reales a GitHub. Usa variables de entorno o un archivo .env.
+
 
 📌 5. Aplicar migraciones
 Ejecuta el siguiente comando para crear las tablas en la base de datos:
@@ -70,6 +73,7 @@ Ejecuta el siguiente comando para crear las tablas en la base de datos:
 bash
 
 python manage.py migrate
+
 🚀 6. Iniciar el servidor de desarrollo
 Para ejecutar el servidor de Django:
 
