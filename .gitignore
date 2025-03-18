@@ -1,53 +1,27 @@
-# Archivos de Python
-*.pyc
-*.pyo
-*.pyd
-__pycache__/
-
-# Entornos virtuales
+# Entorno virtual
 venv/
-env/
-*.env
+.env
 
-# Configuración del IDE
-.vscode/
-.idea/
+# Archivos de configuración sensible
+settings.py
 
 # Archivos de base de datos
-db.sqlite3
+*.sqlite3
 *.db
 
-# Archivos estáticos y de caché
-staticfiles/
-media/
-
-# Archivos de migraciones generadas automáticamente
-migrations/**/__pycache__/
-migrations/**/*.pyc
-
-# Archivos de logs y dumps
-*.log
-*.pot
+# Archivos de caché y logs
 *.pyc
-*.pyo
-*.pyd
-*.swp
-*.swo
-*.swn
-*.~undo-tree~
+__pycache__/
+*.log
 
-# Archivos generados por Django
-*.mo
-*.compiled
+# Archivos de IDE
+.idea/
+.vscode/
 
-# Dependencias de Python
-.Python
-pip-log.txt
-pip-delete-this-directory.txt
+# Archivos de sistema
+.DS_Store
+Thumbs.db
 
-# Archivos de entorno y configuración local
-.env
-.env.local
-.env.development
-.env.production
-.env.test
+# Archivos de migraciones (opcional, dependiendo de tu flujo de trabajo)
+*/migrations/*.py
+!*/migrations/__init__.py
