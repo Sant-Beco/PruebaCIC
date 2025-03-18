@@ -29,7 +29,7 @@
                 <form method="post" action="{% url 'crear_datos' %}">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="ciudad">Ciudad:</label>
+                        <label for="ciudad">Municipio:</label>
                         <input type="text" id="ciudad" name="ciudad" required>
                     </div>
                     <div class="form-group">
@@ -47,12 +47,12 @@
 
         <!-- Mostrar datos creados manualmente -->
         <div class="manual-data">
-            <h2>Datos creados manualmente</h2>
+            <h2>Datos OpenWeatherMapx</h2>
             {% if datos_manuales %}
                 <ul>
                     {% for dato in datos_manuales %}
                         <li>
-                            <strong>Ciudad:</strong> {{ dato.ciudad }}<br>
+                            <strong>Municipio:</strong> {{ dato.ciudad }}<br>
                             <strong>Temperatura:</strong> {{ dato.temperatura }}°C<br>
                             <strong>Humedad:</strong> {{ dato.humedad }}%
                             <br>
