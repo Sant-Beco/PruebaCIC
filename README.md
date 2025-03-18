@@ -11,8 +11,13 @@ Con ProjectCIC, puedes:
 Antes de comenzar, asegúrate de contar con:
 
 🐍 Python 3.8 o superior
+
 🛢️ MySQL instalado y en ejecución
+
+📡 Clave de API de OpenWeatherMap (Regístrate en OpenWeatherMap)
+
 🏗️ (Opcional) Uso de un entorno virtual para aislar dependencias
+
 
 📥 1. Clonar el repositorio
 Para obtener una copia del proyecto, ejecuta:
@@ -51,7 +56,16 @@ Ejecuta el siguiente comando para instalar las dependencias del proyecto:
 
 pip install -r requirements.txt
 
-🛠️ 4. Configurar la base de datos MySQL
+🔑 4. Configurar la API de OpenWeatherMap
+Para obtener los datos del clima, debes agregar tu clave de API en el archivo de configuración de Django.
+
+Abre settings.py
+Añade tu clave API en la configuración:
+
+![image](https://github.com/user-attachments/assets/644d386e-c95a-436c-9743-44d949eee241)
+
+
+🛠️ 5. Configurar la base de datos MySQL
 1️⃣ Crea una base de datos en MySQL
 
 Ejecuta en MySQL:
@@ -83,21 +97,43 @@ DATABASES = {
 }
 
 
-📌 5. Aplicar migraciones
+📌 6. Aplicar migraciones
 Ejecuta el siguiente comando para crear las tablas en la base de datos:
 
 ![image](https://github.com/user-attachments/assets/5b3f0185-d91a-4bce-9838-1f690ea59493)
 
 python manage.py migrate
 
-🚀 6. Iniciar el servidor de desarrollo
+🚀 7. Iniciar el servidor de desarrollo
 Para ejecutar el servidor de Django:
 
 python manage.py runserver
 
 ![image](https://github.com/user-attachments/assets/2253e9f1-732b-4756-b975-164f2a66d219)
 
-
-
 Luego, abre en tu navegador:
 http://127.0.0.1:8000
+
+🌦️ Ejecutar el script de descarga de datos climáticos
+
+El script Script_data.py obtiene información del clima desde OpenWeatherMap y la almacena en la base de datos cada minuto.
+
+▶️ Ejecutarlo manualmente
+Para ejecutar el script de manera manual, usa:
+
+![image](https://github.com/user-attachments/assets/5deae0b7-2907-45e6-8ff6-fc1076920aeb)
+
+🎯 ¿Por qué elegir ProjectCIC?
+
+
+✅ Código limpio y bien estructurado 🛠️ 
+
+✅ Base de datos optimizada con MySQL 🛢️ 
+
+✅ Automatización de datos climáticos en tiempo real 🌦️ 
+
+✅ CRUD funcional y ágil 📝 
+
+✅ Diseñado para escalar y crecer con facilidad 🚀 
+
+✅ Consumo eficiente de APIs 🔗 
