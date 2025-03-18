@@ -1,45 +1,27 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="utf-8">
-    <title>Gráficos de Datos</title>
-    <style>
-    .btn-ver-grafico {
-        background-color: #4CAF50; 
-        color: #fff;               
-        padding: 10px 20px;       
-        margin: 40px;
-        text-decoration: none;     
-        border-radius: 5px;       
-        font-family: sans-serif;   
-        transition: background-color 0.3s ease; 
-}
-
-    .btn-ver-grafico:hover {
-        background-color: #45a049;
-}
-
-    h1 {
-        color: #1A73E8; /* Azul corporativo */
-        font-size: 2rem;
-        margin-bottom: 1rem;
-}
-
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 Gráficos de Datos</title>
+    <link rel="stylesheet" href="{% static 'css/styles_dos.css' %}">
 </head>
 <body>
-    <h1>Gráficos de Datos</h1>
-    
-    {% if mensaje %}
-        <p>{{ mensaje }}</p>
-    {% else %}
-        <!-- Incrustar el gráfico de Plotly -->
-        <div>
-            {{ grafico_html|safe }}
-        </div>
-    {% endif %}
-    
-    <a href="{% url 'index' %}" class="btn-ver-grafico">Volver al inicio</a>
+    <main class="container">
+        <h1>📊 Gráficos de Datos</h1>
+
+        <section>
+            {% if mensaje %}
+                <p class="message" aria-live="polite">{{ mensaje }}</p>
+            {% else %}
+                <div class="chart-container">
+                    {{ grafico_html|safe }}
+                </div>
+            {% endif %}
+        </section>
+
+        <a href="{% url 'index' %}" class="btn btn-primary">⬅️ Volver al inicio</a>
+    </main>
 </body>
 </html>

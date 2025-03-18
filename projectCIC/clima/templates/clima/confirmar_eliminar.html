@@ -4,22 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmar eliminación</title>
+    <title>Confirmar Eliminación</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <div class="container">
-        <h1>Confirmar eliminación</h1>
+        <h1>⚠️ Confirmar Eliminación</h1>
         <p>¿Estás seguro de que deseas eliminar los siguientes datos?</p>
-        <ul>
-            <li><strong>Municipio:</strong> {{ dato.ciudad }}</li>
-            <li><strong>Temperatura:</strong> {{ dato.temperatura }}°C</li>
-            <li><strong>Humedad:</strong> {{ dato.humedad }}%</li>
-        </ul>
+        
+        <fieldset class="data-preview">
+            <legend>Datos a eliminar</legend>
+            <ul>
+                <li><strong>🌍 Municipio:</strong> {{ dato.ciudad }}</li>
+                <li><strong>🌡️ Temperatura:</strong> {{ dato.temperatura }}°C</li>
+                <li><strong>💧 Humedad:</strong> {{ dato.humedad }}%</li>
+            </ul>
+        </fieldset>
+
         <form method="post">
             {% csrf_token %}
-            <button type="submit" class="delete-btn">Sí, eliminar</button>
-            <a href="{% url 'index' %}" class="cancel-btn">Cancelar</a>
+            <div class="button-group">
+                <button type="submit" class="delete-btn">✅ Sí, eliminar</button>
+                <button type="button" class="cancel-btn" onclick="window.location.href='{% url 'index' %}'">❌ Cancelar</button>
+            </div>
         </form>
     </div>
 </body>

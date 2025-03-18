@@ -4,27 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar datos</title>
+    <title>Editar Datos</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <div class="container">
-        <h1>Editar datos</h1>
+        <h1>✏️ Editar Datos</h1>
+
         <form method="post">
             {% csrf_token %}
-            <div class="form-group">
-                <label for="ciudad">Municipio:</label>
-                <input type="text" id="ciudad" name="ciudad" value="{{ dato.ciudad }}" required>
+            
+            <fieldset class="data-form">
+                <legend>📌 Información a Editar</legend>
+
+                <div class="form-group">
+                    <label for="ciudad">🏙️ Municipio:</label>
+                    <input type="text" id="ciudad" name="ciudad" value="{{ dato.ciudad }}" required 
+                           placeholder="Ingrese el municipio" aria-label="Municipio">
+                </div>
+
+                <div class="form-group">
+                    <label for="temperatura">🌡️ Temperatura (°C):</label>
+                    <input type="number" step="0.01" id="temperatura" name="temperatura" value="{{ dato.temperatura }}" required 
+                           placeholder="Ejemplo: 25.5" aria-label="Temperatura">
+                </div>
+
+                <div class="form-group">
+                    <label for="humedad">💧 Humedad (%):</label>
+                    <input type="number" step="0.01" id="humedad" name="humedad" value="{{ dato.humedad }}" required 
+                           placeholder="Ejemplo: 60.5" aria-label="Humedad">
+                </div>
+            </fieldset>
+
+            <div class="button-group">
+                <button type="submit" class="submit-btn">💾 Guardar Cambios</button>
+                <button type="button" class="cancel-btn" onclick="window.location.href='{% url 'index' %}'">❌ Cancelar</button>
             </div>
-            <div class="form-group">
-                <label for="temperatura">Temperatura:</label>
-                <input type="number" step="0.01" id="temperatura" name="temperatura" value="{{ dato.temperatura }}" required>
-            </div>
-            <div class="form-group">
-                <label for="humedad">Humedad:</label>
-                <input type="number" step="0.01" id="humedad" name="humedad" value="{{ dato.humedad }}" required>
-            </div>
-            <button type="submit" class="submit-btn">Guardar cambios</button>
         </form>
     </div>
 </body>
