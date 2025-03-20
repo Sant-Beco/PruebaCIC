@@ -309,7 +309,7 @@ The Script_data.py script retrieves weather data from OpenWeatherMap and stores 
 
 ![image](https://github.com/user-attachments/assets/f52a658d-639b-480a-9ee0-7da208c3428a)
 
-Script de descargar datos de API de OpenWeatherMap
+Script para descargar datos de API de OpenWeatherMap
 
 ![image](https://github.com/user-attachments/assets/34c54b98-bba4-4773-b5f4-1b0e8ad6fe76)
 
