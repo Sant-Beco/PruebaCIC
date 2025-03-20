@@ -292,3 +292,20 @@ The Script_data.py script retrieves weather data from OpenWeatherMap and stores 
 ✅ Fast and intuitive CRUD system 📝
 ✅ Scalable and future-proof 🚀
 ✅ Efficient API consumption 🔗
+
+🖼️ Capturas de Pantalla
+
+![image](https://github.com/user-attachments/assets/037726b3-3029-4b5b-bd52-ee493052b7bd)
+
+![image](https://github.com/user-attachments/assets/c8ae3d49-1a60-46c8-9628-742545fdd2c1)
+
+![image](https://github.com/user-attachments/assets/181ab35a-f1f4-4b1d-bff7-a470cbf365bc)
+
+![image](https://github.com/user-attachments/assets/6b6ddcd9-598c-4df9-ab77-4d2179826951)
+
+![image](https://github.com/user-attachments/assets/a90b854d-00ae-4dc6-b8db-d5fa4a854e21)
+
+![image](https://github.com/user-attachments/assets/d16d815e-526d-49c4-86be-3d40cd78ac31)
+
+![image](https://github.com/user-attachments/assets/f52a658d-639b-480a-9ee0-7da208c3428a)
+
